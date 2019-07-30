@@ -34,17 +34,17 @@ spec:
     
     # Prometheus checks based on 
     # http_request_duration_seconds histogram
-    # metrics:
-    #   - name: request-success-rate
-    #     # minimum req success rate (non 5xx responses)
-    #     # percentage (0-100)
-    #     threshold: 99
-    #     interval: 1m
-    #   - name: request-duration
-    #     # maximum req duration P99
-    #     # milliseconds
-    #     threshold: 500
-    #     interval: 30s
+    metrics:
+      - name: request-success-rate
+        # minimum req success rate (non 5xx responses)
+        # percentage (0-100)
+        threshold: 99
+        interval: 1m
+      - name: request-duration
+        # maximum req duration P99
+        # milliseconds
+        threshold: 500
+        interval: 30s
 
     # acceptance/load testing hooks
     webhooks:
@@ -66,4 +66,4 @@ spec:
         type: rollout
         url: http://flagger-loadtester.test/
         metadata:
-          cmd: "hey -z 2m -q 10 -c 2 http://podinfo:9898/"
+          cmd: "hey -z 1m -q 10 -c 2 http://podinfo-canary.test:9898/"
