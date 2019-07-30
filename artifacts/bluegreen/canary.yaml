@@ -31,19 +31,21 @@ spec:
     threshold: 2
     # number of checks to run before rollback
     iterations: 10
+    
     # Prometheus checks based on 
     # http_request_duration_seconds histogram
-    metrics:
-      - name: request-success-rate
-        # minimum req success rate (non 5xx responses)
-        # percentage (0-100)
-        threshold: 99
-        interval: 1m
-      - name: request-duration
-        # maximum req duration P99
-        # milliseconds
-        threshold: 500
-        interval: 30s
+    # metrics:
+    #   - name: request-success-rate
+    #     # minimum req success rate (non 5xx responses)
+    #     # percentage (0-100)
+    #     threshold: 99
+    #     interval: 1m
+    #   - name: request-duration
+    #     # maximum req duration P99
+    #     # milliseconds
+    #     threshold: 500
+    #     interval: 30s
+
     # acceptance/load testing hooks
     webhooks:
       - name: smoke-test
